@@ -52,7 +52,8 @@
                 }).addTo(map);
         
             // Add a marker to the map with images
-            
+
+            // Rantambe
             var iconOptions = {
             iconUrl:  'img/testicon.png',
             iconSize: [50, 60]
@@ -65,6 +66,20 @@
 
         }
             var marker = L.marker([7.061034645645261, 80.5968830671945], markerOptions).addTo(map).bindPopup('<p>Kotmale Dam: The dam generates power from three 67 MW turbines, with a total installed capacity to 201 MW, making it the second largest hydroelectric power station in Sri Lanka. Construction on the dam began in August 1979 and was ceremonially completed in February 1985.</p><img src = "./img/kotmale.jpeg" style = "width: 300px">')
+
+            // Polgolla
+            var iconOptions = {
+            iconUrl:  'img/testicon.png',
+            iconSize: [50, 60]
+            }
+            var customIcon = L.icon(iconOptions);
+            var markerOptions = {
+            icon: customIcon,
+            draggable: true,
+            title: 'dams',
+
+        }
+            var marker = L.marker([7.321978441461829, 80.64549013977243], markerOptions).addTo(map).bindPopup('<h1>Polgolla Dam</h1><p>The Polgolla dam is a manmade structure built across the river to increase the depth of water and to divert its flow towards the hydroelectric power station at Ukuwela. Water is transfered via a penstock to the power station situated about 5 kilometers away. Technically, a construction of this nature is known as a “Barrage”, but, most often it is erroneously referred to as a Dam. The opening of the underground tunnel or penstock is located near the Katugasthota – Madawela road just before the Uyanwatte junction. The power station at Ukuwela consists of two 20 Mega Watt hydroelectric generators that were commissioned in July 1976.(Source: Sunday Observer)</p><img src = "./img/Polgolla.jpeg" style = "width: 300px">')
 
             // kotmale
             var iconOptions = {
@@ -108,7 +123,7 @@
         }
             var marker = L.marker([7.200207548728112, 80.92495708488565], markerOptions).addTo(map).bindPopup('<p>Kotmale Dam: The dam generates power from three 67 MW turbines, with a total installed capacity to 201 MW, making it the second largest hydroelectric power station in Sri Lanka. Construction on the dam began in August 1979 and was ceremonially completed in February 1985.</p><img src = "./img/kotmale.jpeg" style = "width: 300px">')
 
-            //maduruoya 
+            //bowatenne 
             var iconOptions = {
             iconUrl:  'img/testicon.png',
             iconSize: [50, 60]
