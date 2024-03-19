@@ -47,31 +47,44 @@
     <div id = "map"></div>
     <script>
         var map = L.map('map').setView([7.620822326173849, 80.6348800369385], 8);
-        var osm = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
+        L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
             attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' 
         }).addTo(map);
-
-        var osm2 = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' 
-        }).addTo(map);
-       
-    //Leaflet layer control
-    var baseMaps = {
-        'Dams': osm,
-        'Settlement Towns': osm2,
-       
-    }
-
-    L.control.layers(baseMaps).addTo(map);
-    </script>
-       <!-- Footer-->
-       <footer class="py-5 bg-light">
-        <div class="container"><p class="m-0 text-center text-black">Copyright &copy; Priyanka Jayakodi, 2024. This project is supported by CHI at MSU.</p></div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
     
+    // Custom Marker 
+    
+        var iconOptions = {
+            iconUrl: 'img/noun.png',
+            iconSize: [30, 40]
+        }
+        var customIcon = L.icon(iconOptions);
+        var markersOptions = {
+            icon: customIcon
+        }
+
+    //Dams
+    var Polgolla = L.marker([7.0608894734134635, 80.59689192812621],markersOptions).bindPopup('<p>The Polgolla: The Polgolla dam is a manmade structure built across the river to increase the depth of water and to divert its flow towards the hydroelectric power station at Ukuwela. Technically, a construction of this nature is known as a “Barrage”, but, most often it is erroneously referred to as a Dam. The opening of the underground tunnel or penstock is located near the Katugasthota – Madawela road just before the Uyanwatte junction. The power station at Ukuwela consists of two 20 Mega Watt hydroelectric generators that were commissioned in July 1976.(Source: Sunday Observer)</p><img src = "./img/Polgolla.jpeg" style = "width: 300px">'); 
+    var victoria = L.marker([7.24157111500113, 80.78509992773945],markersOptions).bindPopup('<p>Kotmale Dam: The dam generates power from three 67 MW turbines, with a total installed capacity to 201 MW, making it the second largest hydroelectric power station in Sri Lanka. Construction on the dam began in August 1979 and was ceremonially completed in February 1985.</p><img src = "./img/kotmale.jpeg" style = "width: 300px">'); 
+    var Rantembe = L.marker([7.199882636366756, 80.94961807260941],markersOptions).bindPopup('<p>Kotmale Dam: The dam generates power from three 67 MW turbines, with a total installed capacity to 201 MW, making it the second largest hydroelectric power station in Sri Lanka. Construction on the dam began in August 1979 and was ceremonially completed in February 1985.</p><img src = "./img/kotmale.jpeg" style = "width: 300px">');
+
+    // group dams 
+    var dams = L.layerGroup([Polgolla, victoria, Rantembe]);
+
+    // towns
+    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markersOptions).bindPopup('<h1>Dehiattakandiya</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style = "width:300px">'); 
+    var Sandunpura = L.marker([7.62442903817816, 81.04988688039272],markersOptions).bindPopup('<h1> Sandunpura</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style ="width:300px">'); 
+    
+    // group dams 
+    var Towns = L.layerGroup([Dehiattakandiya, Sandunpura]);
+
+    //Map Overlays
+    var overlayMaps = {
+        "Dams constructed under AMDP": dams,
+        "Towns where people were resettled": Towns
+    };
+    // layer control added to map
+    var layerControl = L.control.layers(overlayMaps).addTo(map);
+    </script>
+
 </body>
 </html>
