@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <style>
-        #map {position: absolute; top:0; bottom:0; left: 0; right: 0;}
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Full Width Pics - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+         <!-- Make sure you put this AFTER Leaflet's CSS -->
+       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+       crossorigin=""></script>
+       <style>
+           #map { position: absolute; height: 100vh; width: 100%; }
+       </style>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Test Map of Mahaweli Project Dams</title>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Mapping Mahaweli</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="newmap.html">Map</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Mahaweli Memories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sources.html">Sources</a></li>
+                        <lil class="nav-item"><a class="nav-link" href="about.html">About</a></lil>li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header - set the background image for the header in the line below-->
 <body>
     <div id = "map"></div>
     <script>
-        var map = L.map('map').setView([7.146296883315369, 81.11917021594186],8);
-        var osm = L.tileLayer('https://api.maptiler.com/maps/dataviz/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
+        var map = L.map('map').setView([7.620822326173849, 80.6348800369385], 8);
+        var osm = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
             attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' 
         }).addTo(map);
 
-         // Add a marker to the map with images
-
-            // Rantambe
-            var iconOptions = {
-            iconUrl:  'img/noun.png',
-            iconSize: [30, 40]
-            }
-            var customIcon = L.icon(iconOptions);
-            var markerOptions = {
-            icon: customIcon,
-            draggable: true,
-            title: 'dams',
-
-        }
-
-        var second = L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
+        var osm2 = L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
             attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' 
         }).addTo(map);
        
     //Leaflet layer control
     var baseMaps = {
-        'Open Street Map': osm,
-        'Open Street Map 2': second,
+        'Dams': osm,
+        'Settlement Towns': osm2,
        
     }
 
     L.control.layers(baseMaps).addTo(map);
     </script>
+       <!-- Footer-->
+       <footer class="py-5 bg-light">
+        <div class="container"><p class="m-0 text-center text-black">Copyright &copy; Priyanka Jayakodi, 2024. This project is supported by CHI at MSU.</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
     
 </body>
 </html>
