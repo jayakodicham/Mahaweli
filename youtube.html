@@ -64,7 +64,7 @@
         
         var iconOptions = {
             iconUrl: 'img/zones.png',
-            iconSize: [50, 75]
+            iconSize: [50, 55]
         }
         var customIcon = L.icon(iconOptions);
         var markerOptions = {
@@ -80,11 +80,11 @@
     var dams = L.layerGroup([Polgolla, victoria, Rantembe]);
 
     // towns
-    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markerOptions).bindPopup('<h1>Dehiattakandiya</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style = "width:300px">'); 
-    var Sandunpura = L.marker([7.62442903817816, 81.04988688039272],markerOptions).bindPopup('<h1> Sandunpura</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style ="width:300px">'); 
-    
+    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markerOptions).bindPopup('<p>Dehiattakandiya</p>');
+    var Manampitiya = L.marker([7.90055482771435, 81.09569085826146],markerOptions).bindPopup('<p>Manampitiya</p>');
+ 
     // group dams 
-    var Towns = L.layerGroup([Dehiattakandiya, Sandunpura]);
+    var Towns = L.layerGroup([Dehiattakandiya, Manampitiya]);
 
     //Map Overlays
     var overlayMaps = {
