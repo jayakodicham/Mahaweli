@@ -55,7 +55,7 @@
     
         var iconOptions = {
             iconUrl: 'img/noun.png',
-            iconSize: [60, 70]
+            iconSize: [40, 55]
         }
         var customIcon = L.icon(iconOptions);
         var markersOptions = {
@@ -63,11 +63,11 @@
         }
         
         var iconOptions = {
-            iconUrl: 'img/houses.png',
-            iconSize: [40, 50]
+            iconUrl: 'img/zones.png',
+            iconSize: [50, 75]
         }
         var customIcon = L.icon(iconOptions);
-        var markersOptions = {
+        var markerOptions = {
             icon: customIcon
         }
 
@@ -80,8 +80,8 @@
     var dams = L.layerGroup([Polgolla, victoria, Rantembe]);
 
     // towns
-    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markersOptions).bindPopup('<h1>Dehiattakandiya</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style = "width:300px">'); 
-    var Sandunpura = L.marker([7.62442903817816, 81.04988688039272],markersOptions).bindPopup('<h1> Sandunpura</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style ="width:300px">'); 
+    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markerOptions).bindPopup('<h1>Dehiattakandiya</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style = "width:300px">'); 
+    var Sandunpura = L.marker([7.62442903817816, 81.04988688039272],markerOptions).bindPopup('<h1> Sandunpura</h1><img src = "well.jpg" style ="width:300px"><img src = "well.jpg" style ="width:300px">'); 
     
     // group dams 
     var Towns = L.layerGroup([Dehiattakandiya, Sandunpura]);
@@ -89,7 +89,7 @@
     //Map Overlays
     var overlayMaps = {
         "Dams constructed under AMDP": dams,
-        "Towns where people were resettled": Towns
+        "New Towns established under AMDP": Towns
     };
     // layer control added to map
     var layerControl = L.control.layers(overlayMaps).addTo(map);
