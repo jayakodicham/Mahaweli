@@ -84,11 +84,12 @@
     var dams = L.layerGroup([Polgolla, victoria, Rantembe, Moragahakanda, Maduruoya, Randenigala]);
 
     // towns
-    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markerOptions).bindPopup('<p>Dehiattakandiya</p>');
-    var Manampitiya = L.marker([7.90055482771435, 81.09569085826146],markerOptions).bindPopup('<p>Manampitiya</p>');
- 
+    var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markerOptions).bindPopup('<p>Dehiattakandiya is a town area that belongs the Mahaweli System C</p>');
+    var Manampitiya = L.marker([7.90055482771435, 81.09569085826146],markerOptions).bindPopup('<p>Manampitiya is a town area that belongs to the Mahaweli System B</p>');
+    var Aranaganwila = L.marker([7.769503846780168, 81.17458802546528],markerOptions).bindPopup('<p>Aranaganwila is a town area that belongs to the Mahaweli System B</p>');
+    var Welikanda = L.marker([7.946037586681763, 81.2490837285569],markerOptions).bindPopup('<p> Welikanda is a town area that belongs to the Mahaweli System B</p>');
     // group dams 
-    var Towns = L.layerGroup([Dehiattakandiya, Manampitiya]);
+    var Towns = L.layerGroup([Dehiattakandiya, Manampitiya, Aranaganwila, Welikanda]);
 
     //Map Overlays
     var overlayMaps = {
