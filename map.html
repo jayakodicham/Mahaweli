@@ -105,14 +105,20 @@
     var Thambuththegama = L.marker([8.184313109428599, 80.29330813077277],markerOptions).bindPopup('<p> Thambuththegama is a town area that belongs to the Mahaweli System H</p>');
     var Bakamuna = L.marker([7.780602960472688, 80.81836947141291],markerOptions).bindPopup('<p> Bakamuna is a town area that belongs to the Mahaweli System G</p>');
     var Sooriyawewa = L.marker([6.319632713154766, 81.0051654722853],markerOptions).bindPopup('<p> Sooriyawewa is a town area that belongs to the Mahaweli System Udawalawa</p>');
+    var Digana = L.marker([7.294659711638938, 80.73723784973753],markerOptions).bindPopup('<p> Digana is a town area that belongs to the Mahaweli System E/Victoria</p>');
+    var Padiyathalawa = L.marker([7.392006407718639, 81.24196496841793],markerOptions).bindPopup('<p> Padiyathalawa is a town area that belongs to the Mahaweli System Rambaken Oya</p>');
+    var MahaOya = L.marker([7.531412825821067, 81.34549875143706],markerOptions).bindPopup('<p> Maha Oya is a town area that belongs to the Mahaweli System Rambaken Oya</p>');
+    var Embilipitiya = L.marker([6.316320616693455, 80.84444021223726],markerOptions).bindPopup('<p> Embilipitiya is a town area that belongs to the Mahaweli System Udawalawa</p>');
+    var Palugaswewa = L.marker([8.060672530112987, 80.68977320123501],markerOptions).bindPopup('<p> Palugaswewa is a town area that belongs to the Mahaweli System Huruluwewa</p>');
+    var Galkiriyagama = L.marker([7.936893700063177, 80.56623481259133],markerOptions).bindPopup('<p> Galkiriyagama is a town area that belongs to the Mahaweli System Huruluwewa</p>');
 
     // group dams 
-    var Towns = L.layerGroup([Dehiattakandiya, Manampitiya, Aranaganwila, Dimbulagala, Welikanda, Giradurukotte, Laggala, Thalawa, Nochchiyagama, Meegalewa, Galnewa, Thambuththegama, Bakamuna, Sooriyawewa ]);
+    var Towns = L.layerGroup([Dehiattakandiya, Manampitiya, Aranaganwila, Dimbulagala, Welikanda, Giradurukotte, Laggala, Thalawa, Nochchiyagama, Meegalewa, Galnewa, Thambuththegama, Bakamuna, Sooriyawewa, Digana, Padiyathalawa, MahaOya, Embilipitiya, Palugaswewa, Galkiriyagama ]);
 
     //Map Overlays
     var overlayMaps = {
-        "Dams constructed under AMDP": dams,
-        "New Towns established under AMDP": Towns
+        "Dams constructed under the AMDP": dams,
+        "Town Centers established under the AMDP": Towns
     };
     // layer control added to map
     var layerControl = L.control.layers(overlayMaps).addTo(map);
