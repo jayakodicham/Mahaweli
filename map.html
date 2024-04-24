@@ -12,18 +12,33 @@
         <link href="css/styles.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
          <!-- Make sure you put this AFTER Leaflet's CSS -->
        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-       crossorigin=""></script>
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+       
+        <!-- Get the markercluster css too -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+        <!-- Get the markercluster plugin too --->
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+        <!-- Get the markercluster css too --->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+        <!-- Get the markercluster plugin too --->
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+
        <style>
-           #map { position: absolute; height: 90vh; width: 100%; }
+           #map { 
+            position: absolute; 
+            height: 90vh;
+            width: 100%; 
+            }
        </style>
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Test Map of Mahaweli Project Dams</title>
+       <title>Mapping Mahaweli Map</title>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -50,13 +65,15 @@
             </div>
         </nav>
         <!-- Header - set the background image for the header in the line below-->
-    <body>
+    
+<body>
     <div id = "map"></div>
     <script>
         var map = L.map('map').setView([7.620822326173849, 80.6348800369385], 8);
-        L.tileLayer('https://api.maptiler.com/maps/bright-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu',{
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' 
-        }).addTo(map);
+        baseLayer = L.tileLayer('https://api.maptiler.com/maps/bright-v2/{z}/{x}/{y}.png?key=9ZlnxkRt2oS8TwA1JdFu', {
+            attribution: '<a href="https://urldefense.com/v3/__https://www.maptiler.com/copyright/__;!!HXCxUKc!yrj02Es_bfLohnOs-7AsYsKI8APsChfEDFGn2rfR5berko1KrewYCxgRcAoHDkq_-wz793PDA1INFjnenA$" target="_blank">&copy; MapTiler</a> <a href="https://urldefense.com/v3/__https://www.openstreetmap.org/copyright__;!!HXCxUKc!yrj02Es_bfLohnOs-7AsYsKI8APsChfEDFGn2rfR5berko1KrewYCxgRcAoHDkq_-wz793PDA1JDxvgR_g$" target="_blank">&copy; OpenStreetMap contributors</a>'
+
+        });
     
     // Custom Marker 
     
@@ -88,7 +105,8 @@
     
 
     // group dams 
-    var dams = L.layerGroup([Polgolla, victoria, Rantembe, Moragahakanda, Maduruoya, Randenigala]);
+    var dams = L.markerClusterGroup();
+    dams.addLayers([Polgolla, victoria, Rantembe, Moragahakanda, Maduruoya, Randenigala]);
 
     // towns
     var Dehiattakandiya = L.marker([7.671482425543524, 81.04696078421763],markerOptions).bindPopup('<p>Dehiattakandiya is a town area that belongs the Mahaweli System C</p>');
@@ -113,15 +131,19 @@
     var Galkiriyagama = L.marker([7.936893700063177, 80.56623481259133],markerOptions).bindPopup('<p> Galkiriyagama is a town area that belongs to the Mahaweli System Huruluwewa</p>');
 
     // group dams 
-    var Towns = L.layerGroup([Dehiattakandiya, Manampitiya, Aranaganwila, Dimbulagala, Welikanda, Giradurukotte, Laggala, Thalawa, Nochchiyagama, Meegalewa, Galnewa, Thambuththegama, Bakamuna, Sooriyawewa, Digana, Padiyathalawa, MahaOya, Embilipitiya, Palugaswewa, Galkiriyagama ]);
-
+    var Towns = L.markerClusterGroup();
+    Towns.addLayers([Dehiattakandiya, Manampitiya, Aranaganwila, Dimbulagala, Welikanda, Giradurukotte, Laggala, Thalawa, Nochchiyagama, Meegalewa, Galnewa, Thambuththegama, Bakamuna, Sooriyawewa, Digana, Padiyathalawa, MahaOya, Embilipitiya, Palugaswewa, Galkiriyagama]);
+    // Map baseLayer
+    var baseMaps = {
+        "Sri Lanka": baseLayer
+        }
     //Map Overlays
     var overlayMaps = {
         "Dams constructed under the AMDP": dams,
         "Town Centers established under the AMDP": Towns
-    };
+        };
     // layer control added to map
-    var layerControl = L.control.layers(overlayMaps).addTo(map);
+    var layerControl = L.control.layers(baseMaps,OverlayerMaps).addTo(map);
     </script>
 
 </body>
