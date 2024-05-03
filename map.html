@@ -138,7 +138,7 @@
 
             // Map baseLayer
             var baseMaps = {
-                "my baselayer": baseLayer
+                "Mahaweli Constructions": baseLayer
             }
 
             //Map Overlays
@@ -149,6 +149,9 @@
 
             // layer control added to map
             var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+            //set the base layer as the default layer
+            baseLayer.addTo(map);
 
         </script>
 
